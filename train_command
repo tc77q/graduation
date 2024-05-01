@@ -1,0 +1,21 @@
+
+
+pytorch train.py --algo sac --env LunarLanderContinuous-v2
+pytorch train.py --algo qrdqn --env BeamRider-v4
+
+
+pytorch  enjoy.py --algo a2c --env LunarLander-v2 --folder rl-trained-agents/ -n 5000
+pytorch  enjoy.py --algo a2c --env BipedalWalker-v3 --folder rl-trained-agents/ -n 5000
+pytorch  enjoy.py --algo a2c --env PongNoFrameskip-v4 --folder rl-trained-agents/ -n 5000
+pytorch  enjoy.py --algo qrdqn --env AsteroidsNoFrameskip-v4 -n 5000
+
+pytorch scripts/all_plots.py -a sac td3 tqc --env HalfCheetahBullet AntBullet -f rl-trained-agents/
+pytorch scripts/all_plots.py -a a2c ppo dqn qrdqn --env MsPacman -f rl-trained-agents/
+
+pytorch -m rl_zoo3.benchmar
+
+pytorch scripts/all_plots.py -a a2c ppo dqn qrdqn --env BeamRider Breakout Enduro Pong Qbert Seaquest SpaceInvaders -f rl-trained-agents/
+
+pytorch scripts/all_plots.py -a a2c ppo ddpg sac td3 trpo --env Walker2D HalfCheetah Enduro Ant Reacher Seaquest Hopper -f rl-trained-agents/
+
+pytorch scripts/all_plots.py -a a2c ppo ddpg sac trpo --env Hopper -f rl-trained-agents/

@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="res">
+    <file>close (1).png</file>
+    <file>reduce.png</file>
+    <file>风景2.jpg</file>
+  </qresource>
+</RCC>

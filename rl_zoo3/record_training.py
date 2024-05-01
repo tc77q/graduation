@@ -82,7 +82,7 @@ if __name__ == "__main__":
         return_code = subprocess.call(["python", "-m", "rl_zoo3.record_video", *args_final_model])
         assert return_code == 0, "Failed to record the final model"
 
-    if os.path.exists(os.path.join(log_path, "best_model.zip")):
+    if os.path.exists(os.path.join(log_path, "Pong-v4.zip")):
         args_best_model = [*args_final_model, "--load-best"]
         return_code = subprocess.call(["python", "-m", "rl_zoo3.record_video", *args_best_model])
         assert return_code == 0, "Failed to record the best model"

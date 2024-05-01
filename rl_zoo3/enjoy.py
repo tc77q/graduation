@@ -144,7 +144,9 @@ def enjoy() -> None:  # noqa: C901
     args_path = os.path.join(log_path, env_name, "args.yml")
     if os.path.isfile(args_path):
         with open(args_path) as f:
+            # loaded_args = yaml.load(f, Loader=yaml.UnbsafeLoader)
             loaded_args = yaml.load(f, Loader=yaml.UnsafeLoader)
+
             if loaded_args["env_kwargs"] is not None:
                 env_kwargs = loaded_args["env_kwargs"]
     # overwrite with command line arguments

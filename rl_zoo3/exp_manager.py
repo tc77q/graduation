@@ -42,6 +42,9 @@ from stable_baselines3.common.vec_env import (
     is_vecenv_wrapped,
 )
 
+# import main
+# from main import save_path
+
 # For custom activation fn
 from torch import nn as nn
 
@@ -177,6 +180,8 @@ class ExperimentManager:
         self.save_path = os.path.join(
             self.log_path, f"{self.env_name}_{get_latest_run_id(self.log_path, self.env_name) + 1}{uuid_str}"
         )
+
+        # main.save_path = self.save_path
         self.params_path = f"{self.save_path}/{self.env_name}"
 
     def setup_experiment(self) -> Optional[Tuple[BaseAlgorithm, Dict[str, Any]]]:
@@ -289,6 +294,12 @@ class ExperimentManager:
             yaml.dump(ordered_args, f)
 
         print(f"Log path: {self.save_path}")
+
+        with open("save_path.txt", "w") as file:
+            file.write(self.save_path)
+            # print("zhuanghaole")
+            file.close()
+
 
     def read_hyperparameters(self) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         print(f"Loading hyperparameters from: {self.config}")
